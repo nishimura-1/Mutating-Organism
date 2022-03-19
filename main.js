@@ -18,7 +18,6 @@ const pAequorFactory = (specimenNum, dna) => {
     specimenNum,
     dna,
     mutate() {
-      //console.log(this.dna);
       const randBaseIndex = Math.floor(Math.random() * this.dna.length);
       let oldBase = this.dna[randBaseIndex];
       let newBase = returnRandBase();
@@ -26,7 +25,6 @@ const pAequorFactory = (specimenNum, dna) => {
         newBase = returnRandBase();
       }
       this.dna[randBase] = newBase;
-      //console.log(this.dna);
       return this.dna;
     },
 
@@ -58,14 +56,14 @@ const pAequorFactory = (specimenNum, dna) => {
 };
 
 const pAequorLikelyToSurvive = [];
-let specimenNumCounter = 1;
+let specimanCounter = 1;
 
 while (pAequorLikelyToSurvive.length < 30) {
-  const specimen = pAequorFactory(specimenNumCounter, mockUpStrand());
+  const specimen = pAequorFactory(specimanCounter, mockUpStrand());
   if (specimen.willLikelySurvive()) {
     pAequorLikelyToSurvive.push(specimen);
   }
-  specimenNumCounter++;
+  specimanCounter++;
 }
 
 for (let pa of pAequorLikelyToSurvive) {
